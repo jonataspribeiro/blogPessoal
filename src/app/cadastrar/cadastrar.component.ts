@@ -12,4 +12,15 @@ export class CadastrarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+/*Opção de validação do campo nome. Conversor de Javascrip para Type Script.
+
+validaNome(){
+  let nome = (<HTMLInputElement>document.querySelector('#nome')).value
+  if(nome?.length < 5){
+    alert('nome muito pequeno')
+  }else{
+    alert('nome ok')
+  }
+} */
+
 }
