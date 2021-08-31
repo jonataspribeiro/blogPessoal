@@ -24,6 +24,7 @@ export class AuthService {
     return this.http.post<Usuario>('https://blogpessoaljonatas.herokuapp.com/usuarios/cadastrar', usuario)
   }
 
+  /*Método para validação do token*/
   logado(){
     let ok: boolean = false
 
