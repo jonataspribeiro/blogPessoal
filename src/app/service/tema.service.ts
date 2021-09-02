@@ -23,8 +23,23 @@ export class TemaService {
     return this.http.get<Tema[]>('https://blogpessoaljonatas.herokuapp.com/temas', this.token)
   }
 
+  getByIdTema(id: number): Observable<Tema>{
+    return this.http.get<Tema>(`https://blogpessoaljonatas.herokuapp.com/temas/${id}`, this.token)
+  }
+
+  //template literas (passar uma rota com string e variavel ao mesmo tempo)
+
   postTema(temaCadastro: Tema): Observable<Tema>{
     return this.http.post<Tema>('https://blogpessoaljonatas.herokuapp.com/temas', temaCadastro, this.token)
+  }
+
+  //Método Put
+  putTema(tema: Tema): Observable<Tema>{
+    return this.http.put<Tema>('https://blogpessoaljonatas.herokuapp.com/temas', tema, this.token)
+  }
+
+  deleteTema(id: number){
+    return this.http.delete(`https://blogpessoaljonatas.herokuapp.com/temas/${id}`, this.token)
   }
 
 }

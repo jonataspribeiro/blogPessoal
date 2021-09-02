@@ -6,6 +6,8 @@ import { InicioComponent } from './inicio/inicio.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TemaComponent } from './tema/tema.component';
+import { TemaEditComponent } from './edit/tema-edit/tema-edit.component';
+import { TemaDeleteComponent } from './delete/tema-delete/tema-delete.component';
 
 
 /* Criação de rotas */
@@ -15,7 +17,10 @@ const routes: Routes = [
   {path: 'cadastrar', component: CadastrarComponent},
 
   {path: 'inicio', component: InicioComponent},
-  {path: 'tema', component: TemaComponent}
+  {path: 'tema', component: TemaComponent},
+
+  {path: 'tema-edit/:id', component: TemaEditComponent},
+  {path: 'tema-delete/:id', component: TemaDeleteComponent}
 ];
 
 @NgModule({
