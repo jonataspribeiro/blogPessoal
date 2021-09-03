@@ -9,6 +9,7 @@ import { Tema } from '../entrar/model/Tema';
 })
 export class TemaService {
 
+
   constructor(private http: HttpClient) { }
 
   token = {
@@ -19,7 +20,7 @@ export class TemaService {
     return this.http.post<UsuarioLogin>('https://blogpessoaljonatas.herokuapp.com/usuarios/logar', usuarioLogin)
   }*/
 
-  getAllTema(): Observable<Tema[]>{
+  getAllTemas(): Observable<Tema[]>{
     return this.http.get<Tema[]>('https://blogpessoaljonatas.herokuapp.com/temas', this.token)
   }
 

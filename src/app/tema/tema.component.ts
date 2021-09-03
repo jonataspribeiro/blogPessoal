@@ -11,8 +11,8 @@ import { TemaService } from '../service/tema.service';
 })
 export class TemaComponent implements OnInit {
 
-tema: Tema = new Tema()
-listaTemas: Tema[]
+tema: Tema = new Tema();
+listaTemas: Tema[];
 
   constructor(private router: Router, private temaService: TemaService) { }
 
@@ -25,7 +25,7 @@ listaTemas: Tema[]
   }
 
   findAllTemas(){
-    this.temaService.getAllTema().subscribe((resp: Tema[]) => {
+    this.temaService.getAllTemas().subscribe((resp: Tema[]) => {
     this.listaTemas = resp
     })
   }
