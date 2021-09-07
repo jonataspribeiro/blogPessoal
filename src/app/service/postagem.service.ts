@@ -30,5 +30,8 @@ export class PostagemService {
   putPostagem(postagem: Postagem): Observable<Postagem>{
     return this.http.put<Postagem>('https://turma26backend.herokuapp.com/postagens', postagem, this.token)
   }
-    
+  
+  deletePostagem(id: number){
+    return this.http.delete(`https://turma26backend.herokuapp.com/postagens`, this.token)
+  }
 }
