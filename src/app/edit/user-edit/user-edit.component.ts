@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Usuario } from "src/app/entrar/model/Usuario";
+import { AlertasService } from "src/app/service/alertas.service";
 import { AuthService } from "src/app/service/auth.service";
 import { environment } from "src/environments/environment.prod";
 
@@ -21,7 +22,8 @@ export class UserEditComponent implements OnInit {
  constructor(
    private authService: AuthService, 
    private route: ActivatedRoute,
-   private router: Router
+   private router: Router,
+   private alertas: AlertasService
      
      
    ) { }
@@ -41,22 +43,23 @@ export class UserEditComponent implements OnInit {
  }
 
  confirmSenha(event: any){
-
+   this.confirmarSenha = event.target.value
  }
 
  tipoUser(event: any){
+  this.tipoUsuario = event.target.value
 
  }
 
  atualizar(){
   this.usuario.tipo = this.tipoUsuario
   if(this.usuario.senha != this.confirmarSenha){
-    alert('As senhas estão diferentes.')
+    this.alertas.showAlertDanger('As senhas estão diferentes.')
   } else {
     this.authService.cadastrar(this.usuario).subscribe((resp: Usuario)=>{
       this.usuario = resp
       this.router.navigate(['/inicio'])
-      alert('Usuário atualizado com sucesso!, faça o login novamente')
+      this.alertas.showAlertInfo('Usuário atualizado com sucesso!, faça o login novamente')
       environment.token = ''
       environment.nome = ''
       environment.foto = ''

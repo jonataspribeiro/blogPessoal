@@ -32,6 +32,6 @@ export class PostagemService {
   }
   
   deletePostagem(id: number){
-    return this.http.delete(`https://turma26backend.herokuapp.com/postagens`, this.token)
+    return this.http.delete(`https://turma26backend.herokuapp.com/postagens/${id}`, this.token)
   }
 }

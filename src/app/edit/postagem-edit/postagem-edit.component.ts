@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Postagem } from 'src/app/entrar/model/Postagem';
 import { Tema } from 'src/app/entrar/model/Tema';
+import { AlertasService } from 'src/app/service/alertas.service';
 import { PostagemService } from 'src/app/service/postagem.service';
 import { TemaService } from 'src/app/service/tema.service';
 import { environment } from 'src/environments/environment.prod';
@@ -22,7 +23,8 @@ idTema: number
     private router: Router,
     private route: ActivatedRoute,
     private postagemService: PostagemService,
-    private temaService: TemaService
+    private temaService: TemaService,
+    private alertas: AlertasService
   ) { }
 
   ngOnInit() {
@@ -61,7 +63,7 @@ findAllTemas(){
 
     this.postagemService.putPostagem(this.postagem).subscribe((resp: Postagem) => {
       this.postagem = resp
-      alert('Postage atualizada com sucesso!')
+      this.alertas.showAlertSuccess('Postage atualizada com sucesso!')
       this.router.navigate(['/inicio'])
     })
   }
